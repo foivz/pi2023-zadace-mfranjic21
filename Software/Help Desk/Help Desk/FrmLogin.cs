@@ -16,16 +16,22 @@ namespace Help_Desk
         {
             InitializeComponent();
         }
+        public class Djelatnik : Object
+        {
+            public string Email { get; set; }
+            public string Password { get; set; }
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
+
+            string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            if (username == "" || password == "")
+            if (email == "" || password == "")
             {
                 MessageBox.Show("Popunite sva polja", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (username == "djelatnik" && password == "test")
+            } else if (email == "djelatnik" && password == "test")
             {
                 Hide();
                 FrmZahtjevi frmZahtjevi = new FrmZahtjevi();

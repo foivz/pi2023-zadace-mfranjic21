@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblUsername
+            // lblEmail
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.34F);
-            this.lblUsername.Location = new System.Drawing.Point(13, 37);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(91, 15);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Korisničko ime:";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.34F);
+            this.lblEmail.Location = new System.Drawing.Point(19, 34);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(46, 15);
+            this.lblEmail.TabIndex = 0;
+            this.lblEmail.Text = "E-mail:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.34F);
-            this.lblPassword.Location = new System.Drawing.Point(51, 80);
+            this.lblPassword.Location = new System.Drawing.Point(12, 82);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(53, 15);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Lozinka:";
             // 
-            // txtUsername
+            // txtEmail
             // 
-            this.txtUsername.Location = new System.Drawing.Point(110, 34);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(226, 20);
-            this.txtUsername.TabIndex = 2;
+            this.txtEmail.Location = new System.Drawing.Point(71, 31);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(226, 20);
+            this.txtEmail.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(110, 77);
+            this.txtPassword.Location = new System.Drawing.Point(71, 79);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(226, 20);
@@ -72,7 +72,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(229, 119);
+            this.btnLogin.Location = new System.Drawing.Point(190, 135);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(107, 23);
             this.btnLogin.TabIndex = 4;
@@ -84,12 +84,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 167);
+            this.ClientSize = new System.Drawing.Size(315, 170);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblEmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -104,9 +104,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
     }
