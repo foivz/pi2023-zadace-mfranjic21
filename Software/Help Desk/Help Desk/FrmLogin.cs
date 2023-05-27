@@ -16,5 +16,25 @@ namespace Help_Desk
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("Popunite sva polja", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if (username == "djelatnik" && password == "test")
+            {
+                Hide();
+                FrmZahtjevi frmZahtjevi = new FrmZahtjevi();
+                frmZahtjevi.ShowDialog();
+                Close();
+            } else 
+            {
+                MessageBox.Show("Korisničko ime ili lozinka nisu ispravni", "Neuspješna prijava", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
