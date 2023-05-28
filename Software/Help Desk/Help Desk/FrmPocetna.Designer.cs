@@ -39,7 +39,7 @@
             this.lblNaslov.AutoSize = true;
             this.lblNaslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 48.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNaslov.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblNaslov.Location = new System.Drawing.Point(85, 77);
+            this.lblNaslov.Location = new System.Drawing.Point(109, 77);
             this.lblNaslov.Name = "lblNaslov";
             this.lblNaslov.Size = new System.Drawing.Size(340, 74);
             this.lblNaslov.TabIndex = 0;
@@ -50,7 +50,7 @@
             this.lblCIP.AutoSize = true;
             this.lblCIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCIP.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblCIP.Location = new System.Drawing.Point(418, 116);
+            this.lblCIP.Location = new System.Drawing.Point(446, 116);
             this.lblCIP.Name = "lblCIP";
             this.lblCIP.Size = new System.Drawing.Size(288, 26);
             this.lblCIP.TabIndex = 1;
@@ -59,7 +59,7 @@
             // btnPopisKvarova
             // 
             this.btnPopisKvarova.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPopisKvarova.Location = new System.Drawing.Point(266, 171);
+            this.btnPopisKvarova.Location = new System.Drawing.Point(302, 167);
             this.btnPopisKvarova.Name = "btnPopisKvarova";
             this.btnPopisKvarova.Size = new System.Drawing.Size(256, 64);
             this.btnPopisKvarova.TabIndex = 2;
@@ -70,12 +70,13 @@
             // btnPopisZahtjeva
             // 
             this.btnPopisZahtjeva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPopisZahtjeva.Location = new System.Drawing.Point(266, 250);
+            this.btnPopisZahtjeva.Location = new System.Drawing.Point(302, 250);
             this.btnPopisZahtjeva.Name = "btnPopisZahtjeva";
             this.btnPopisZahtjeva.Size = new System.Drawing.Size(256, 64);
             this.btnPopisZahtjeva.TabIndex = 3;
             this.btnPopisZahtjeva.Text = "Podnesi zahtjev za prijavu kvara";
             this.btnPopisZahtjeva.UseVisualStyleBackColor = true;
+            this.btnPopisZahtjeva.Click += new System.EventHandler(this.btnPopisZahtjeva_Click);
             // 
             // FrmPocetna
             // 
@@ -83,7 +84,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(844, 441);
             this.Controls.Add(this.btnPopisZahtjeva);
             this.Controls.Add(this.btnPopisKvarova);
             this.Controls.Add(this.lblCIP);

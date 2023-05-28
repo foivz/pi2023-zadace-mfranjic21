@@ -24,5 +24,13 @@ namespace Help_Desk
             frmZahtjevi.ShowDialog();
             Close();
         }
+
+        private void btnPopisZahtjeva_Click(object sender, EventArgs e)
+        {
+            FrmPodnesiZahtjev frmPodnesiZahtjev = new FrmPodnesiZahtjev();
+            Hide();
+            frmPodnesiZahtjev.ShowDialog();
+            Close();
+        }
     }
 }

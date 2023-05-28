@@ -50,14 +50,14 @@ namespace Help_Desk.Repositories
             string email = reader["Email"].ToString();
             string zaporka = reader["Zaporka"].ToString();
 
-            var teacher = new Djelatnik
+            var djelatnik = new Djelatnik
             {
                 ID_djelatnik = id_djelatnik,
                 ImePrezime = imeprezime,
                 Email = email,
                 Zaporka = zaporka
             };
-            return teacher;
+            return djelatnik;
         }
     }
 }
