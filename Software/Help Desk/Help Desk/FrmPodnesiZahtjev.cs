@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Help_Desk
 {
-    public partial class FrmZahtjevi : Form
+    public partial class Form1 : Form
     {
-        public FrmZahtjevi()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -38,33 +38,36 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.34F);
-            this.lblEmail.Location = new System.Drawing.Point(19, 34);
+            this.lblEmail.BackColor = System.Drawing.SystemColors.GrayText;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblEmail.Location = new System.Drawing.Point(7, 31);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(46, 15);
+            this.lblEmail.Size = new System.Drawing.Size(64, 20);
             this.lblEmail.TabIndex = 0;
             this.lblEmail.Text = "E-mail:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.34F);
-            this.lblPassword.Location = new System.Drawing.Point(12, 82);
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPassword.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPassword.Location = new System.Drawing.Point(3, 79);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 15);
+            this.lblPassword.Size = new System.Drawing.Size(76, 20);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Lozinka:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(71, 31);
+            this.txtEmail.Location = new System.Drawing.Point(77, 31);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(226, 20);
             this.txtEmail.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(71, 79);
+            this.txtPassword.Location = new System.Drawing.Point(77, 79);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(226, 20);
@@ -84,6 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(315, 170);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);

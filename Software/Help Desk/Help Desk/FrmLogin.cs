@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Help_Desk.Models;
+using Help_Desk.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace Help_Desk
 {
     public partial class FrmLogin : Form
     {
+        public static Djelatnik LoggedDjelatnik { get; set; }
         public FrmLogin()
         {
             InitializeComponent();
@@ -26,15 +29,22 @@ namespace Help_Desk
             if (email == "" || password == "")
             {
                 MessageBox.Show("Popunite sva polja", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (email == "djelatnik" && password == "test")
-            {
-                Hide();
-                FrmZahtjevi frmZahtjevi = new FrmZahtjevi();
-                frmZahtjevi.ShowDialog();
-                Close();
-            } else 
+            } else if (txtPassword.Text == "")
             {
                 MessageBox.Show("Korisničko ime ili lozinka nisu ispravni", "Neuspješna prijava", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                LoggedDjelatnik = DjelatnikRepository.GetDjelatnik(txtEmail.Text);
+                if (LoggedDjelatnik != null && LoggedDjelatnik.CheckPassword(txtPassword.Text))
+                {
+                    FrmPocetna frmPocetna = new FrmPocetna();
+                    Hide();
+                    frmPocetna.ShowDialog();
+                    Close();
+                } else
+                {
+                    MessageBox.Show("Krivi podaci!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

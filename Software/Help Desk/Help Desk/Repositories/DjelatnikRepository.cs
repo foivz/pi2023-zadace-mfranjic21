@@ -1,58 +1,63 @@
 ﻿using DBLayer;
+using Help_Desk.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Help_Desk.FrmLogin;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Help_Desk.Repositories
 {
-    private static Djelatnik CreateObject(SqlDataReader reader)
+    public class DjelatnikRepository
     {
-        int id = int.Parse(reader["Id"].ToString());
-        string imeprezime = reader["ImePrezime"].ToString();
-        string email = reader["E-mail"].ToString();
-        string zaporka = reader["Zaporka"].ToString();
-        var djelatnik = new Djelatnik
+        public static Djelatnik GetDjelatnik(string Email)
         {
-            Id = id,
-            ImePrezime = imeprezime,
-            Email = email,
-            Zaporka = zaporka
-        };
-        return djelatnik;
-    }
-
-    public static List<Djelatnik> GetDjelatnik()
-    {
-        List<Djelatnik> djelatnik = new List<Djelatnik>();
-        string sql = "SELECT * FROM Djelatnik";
-        DB.OpenConnection();
-        var reader = DB.GetDataReader(sql);
-        while (reader.Read())
-        {
-            Djelatnik djelatnik = CreateObject(reader);
-            djelatnik.Add(djelatnik);
+            string sql = $"SELECT * FROM Djelatnik WHERE Email = '{Email}'";
+            return FetchDjelatnik(sql);
         }
-        reader.Close();
-        DB.CloseConnection();
-        return djelatnik;
-    }
 
-    public static Djelatnik GetDjelatnik(int id)
-    {
-        Djelatnik djelatnik = null;
-        string sql = $"SELECT * FROM Djelatnik WHERE Id = {id}";
-        DB.OpenConnection();
-        var reader = DB.GetDataReader(sql);
-        if (reader.HasRows)
+
+        public static Djelatnik GetDjelatnik(int id)
         {
-            reader.Read();
-            djelatnik = CreateObject(reader);
-            reader.Close();
+            string sql = $"SELECT * FROM Djelatnik WHERE ID_djelatnik = {id}";
+            return FetchDjelatnik(sql);
         }
-        DB.CloseConnection();
-        return djelatnik;
+
+        private static Djelatnik FetchDjelatnik(string sql)
+        {
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            Djelatnik djelatnik = null;
+
+            if (reader.HasRows == true)
+            {
+                reader.Read();
+                djelatnik = CreateObject(reader);
+                reader.Close();
+            }
+            DB.CloseConnection();
+
+            return djelatnik;
+        }
+
+        private static Djelatnik CreateObject(SqlDataReader reader)
+        {
+            int id_djelatnik = int.Parse(reader["ID_djelatnik"].ToString());
+            string imeprezime = reader["ImePrezime"].ToString();
+            string email = reader["Email"].ToString();
+            string zaporka = reader["Zaporka"].ToString();
+
+            var teacher = new Djelatnik
+            {
+                ID_djelatnik = id_djelatnik,
+                ImePrezime = imeprezime,
+                Email = email,
+                Zaporka = zaporka
+            };
+            return teacher;
+        }
     }
 }

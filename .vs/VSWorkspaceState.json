@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Software",
+    "\\Software\\Help Desk",
+    "\\Software\\Help Desk\\Help Desk",
+    "\\Software\\Help Desk\\Help Desk\\DLLs",
+    "\\Software\\Help Desk\\Help Desk\\Models",
+    "\\Software\\Help Desk\\Help Desk\\Repositories"
   ],
-  "SelectedNode": "\\Software",
+  "SelectedNode": "\\Software\\Help Desk\\Help Desk\\Repositories\\DjelatnikRepository.cs",
   "PreviewInSolutionExplorer": false
 }
