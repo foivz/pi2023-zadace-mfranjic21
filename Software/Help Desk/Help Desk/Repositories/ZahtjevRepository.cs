@@ -15,7 +15,7 @@ namespace Help_Desk.Repositories
         {
             List<Zahtjev> zahtjevi = new List<Zahtjev>();
 
-            string sql = $"SELECT * FROM Zahtjev WHERE DjelatnikID = {djelatnikID}";
+            string sql = $"SELECT * FROM Zahtjevi WHERE DjelatnikID = {djelatnikID}";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
 
@@ -98,15 +98,26 @@ namespace Help_Desk.Repositories
             DB.CloseConnection();
         }
 
-        /*
-        public static void UpdateEvaluation(Evaluation evaluation, Teacher teacher, int points)
+        public static void DeleteZahtjev(int id_Zahtjev)
         {
-            string sql = $"UPDATE Evaluations SET IdTeachers = {teacher.Id},  Points = {points}, EvaluationDate = GETDATE() WHERE IdActivities = {evaluation.Activity.Id} AND IdStudents = {evaluation.Student.Id}";
+            string sql = $"DELETE FROM Zahtjevi WHERE ID_Zahtjev = {id_Zahtjev}";
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
             DB.CloseConnection();
         }
-
-        */
+        public static void PreuzmiZahtjev(int id_Zahtjev)
+        {
+            string sql = $"UPDATE Zahtjevi SET Status = 1 WHERE ID_Zahtjev = {id_Zahtjev}";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+        public static void DodajKomentar(int id_Zahtjev, string komentarText)
+        {
+            string sql = $"UPDATE Zahtjevi SET Komentar = '{komentarText}' WHERE ID_Zahtjev = {id_Zahtjev}";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
     }
 }

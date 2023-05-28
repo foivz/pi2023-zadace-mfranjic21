@@ -15,9 +15,30 @@ namespace Help_Desk
 {
     public partial class FrmZahtjevi : Form
     {
+        private ContextMenuStrip contextMenuStrip;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+
         public FrmZahtjevi()
         {
             InitializeComponent();
+
+            contextMenuStrip = new ContextMenuStrip();
+            deleteToolStripMenuItem = new ToolStripMenuItem("Delete");
+            deleteToolStripMenuItem.Click += IzbrisiPodatke;
+            contextMenuStrip.Items.Add(deleteToolStripMenuItem);
+
+            dgvZahtjevi.ContextMenuStrip = contextMenuStrip;
+        }
+
+        private void IzbrisiPodatke(object sender, EventArgs e)
+        {
+            if (dgvZahtjevi.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvZahtjevi.SelectedRows[0];
+                int id_Zahtjev = Convert.ToInt32(selectedRow.Cells["ID_Zahtjev"].Value);
+                ZahtjevRepository.DeleteZahtjev(id_Zahtjev);
+                OsvjeziDataGridView();
+            }
         }
 
         private void btnNatrag_Click(object sender, EventArgs e)
@@ -32,20 +53,50 @@ namespace Help_Desk
         {
             List<Zahtjev> zahtjevi = ZahtjevRepository.GetZahtjevi();
 
-            dgvZahtjevi.AutoGenerateColumns = false;
-
-            dgvZahtjevi.Columns.Clear();
-
-            dgvZahtjevi.Columns.Add("ID_Zahtjev", "ID");
-            dgvZahtjevi.Columns.Add("DjelatnikID", "Djelatnik ID");
-            dgvZahtjevi.Columns.Add("Status", "Status");
-            dgvZahtjevi.Columns.Add("Komentar", "Komentar");
-            dgvZahtjevi.Columns.Add("VrijemePrijave", "Vrijeme Prijave");
-            dgvZahtjevi.Columns.Add("Prioritet", "Prioritet");
-            dgvZahtjevi.Columns.Add("Opis", "Opis");
-            dgvZahtjevi.Columns.Add("Lokacija", "Lokacija");
-
             dgvZahtjevi.DataSource = zahtjevi;
+        }
+
+        private void btnMojiZahtjevi_Click(object sender, EventArgs e)
+        {
+            FrmMojiZahtjevi frmMojiZahtjevi = new FrmMojiZahtjevi();
+            Hide();
+            frmMojiZahtjevi.ShowDialog();
+            Close();
+        }
+
+        private void btnPreuzmiZahtjev_Click(object sender, EventArgs e)
+        {
+            if (dgvZahtjevi.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvZahtjevi.SelectedRows[0];
+                int zahtjevId = Convert.ToInt32(selectedRow.Cells["ID_Zahtjev"].Value);
+                ZahtjevRepository.PreuzmiZahtjev(zahtjevId);
+                OsvjeziDataGridView();
+            }
+        }
+
+        private void OsvjeziDataGridView()
+        {
+            List<Zahtjev> zahtjevi = ZahtjevRepository.GetZahtjevi();
+            dgvZahtjevi.DataSource = zahtjevi;
+        }
+
+        private void btnKomentar_Click(object sender, EventArgs e)
+        {
+            if (dgvZahtjevi.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvZahtjevi.SelectedRows[0];
+                int id_Zahtjev = Convert.ToInt32(selectedRow.Cells["ID_Zahtjev"].Value);
+
+                FrmKomentar frmKomentar = new FrmKomentar(id_Zahtjev);
+                frmKomentar.FormClosed += FrmKomentar_FormClosed;
+                frmKomentar.ShowDialog();
+            }
+            
+        }
+        private void FrmKomentar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            OsvjeziDataGridView();
         }
     }
 }

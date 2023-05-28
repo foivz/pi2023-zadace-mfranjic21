@@ -67,7 +67,8 @@ namespace Help_Desk
 
 
             ZahtjevRepository.InsertZahtjev(newZahtjev);
-            Close();
+
+            MessageBox.Show("Podatci pohranjeni", "Uspješno", MessageBoxButtons.OK, MessageBoxIcon.None);
 
         }
 
