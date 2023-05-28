@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Help_Desk
         [STAThread]
         static void Main()
         {
+            DB.SetConfiguration("IPS23_mfranjic21", "mfranjic21", ">Oj]E:{e");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmLogin());
