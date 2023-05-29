@@ -30,6 +30,18 @@ Specifikacija zahtjeva treba sadržavati minimalno:
 
 https://elf.foi.hr/pluginfile.php/201855/mod_resource/content/7/Zadatak%20-%20Help%20Desk%20za%20CIP.pdf
 
+## Podatci za prijavu
+
+Za ulazak u aplikaciju koriste se neki od sljedećih podataka:
+
+jivic@foi.hr - jivic123 {ID: 0}
+
+mjozic@foi.hr - mjozic123 {ID: 1}
+
+imikic@foi.hr - imikic123 {ID: 2}
+
+mfranjic21@foi.hr - mfranjic123 {ID: 3}
+
 ## Resursi
 
 
